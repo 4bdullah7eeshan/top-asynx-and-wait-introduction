@@ -24,6 +24,7 @@ const server = {
     },
   };
 
+/*
 function getPersonsInfo(name) {
     return server.getPeople().then(people => {
       return people.find(person => { return person.name === name });
@@ -33,4 +34,15 @@ function getPersonsInfo(name) {
 getPersonsInfo('Odin').then(personInfo => {
     console.log(personInfo); 
 });
+*/
+
+async function getPersonsInfo(name) {
+    const people = await server.getPeople();
+    const person = people.find(person => { return person.name === name });
+    return person;
+}
+
+getPersonsInfo('Odin').then(alert);
+
+  
   
